@@ -1,12 +1,12 @@
+mod task_object;
+mod task_row;
 mod window;
 
-use gtk::{
-    gio, glib,
-    prelude::{ApplicationExt, ApplicationExtManual, GtkWindowExt},
-    Application,
-};
+use gtk::prelude::*;
+use gtk::{gio, glib, Application};
 use window::Window;
 
+// ANCHOR: main
 fn main() -> glib::ExitCode {
     // Register and include resources
     gio::resources_register_include!("src_resources.gresource")
@@ -14,7 +14,7 @@ fn main() -> glib::ExitCode {
 
     // Create a new application
     let app = Application::builder()
-        .application_id("org.gtk_rs.Todo1")
+        .application_id("io.github.aerphanas")
         .build();
 
     // Connect to "activate" signal of `app`
@@ -29,3 +29,4 @@ fn build_ui(app: &Application) {
     let window = Window::new(app);
     window.present();
 }
+// ANCHOR_END: main

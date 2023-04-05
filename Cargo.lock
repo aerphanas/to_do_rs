@@ -3,14 +3,6 @@
 version = 3
 
 [[package]]
-name = "To_Do"
-version = "0.1.0"
-dependencies = [
- "glib-build-tools",
- "gtk4",
-]
-
-[[package]]
 name = "anyhow"
 version = "1.0.70"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -647,6 +639,14 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.13",
+]
+
+[[package]]
+name = "to_do"
+version = "0.1.0"
+dependencies = [
+ "glib-build-tools",
+ "gtk4",
 ]
 
 [[package]]

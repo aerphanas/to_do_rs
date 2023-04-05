@@ -4,6 +4,7 @@ use glib::subclass::InitializingObject;
 use gtk::subclass::prelude::*;
 use gtk::{gio, glib, CompositeTemplate, Entry, ListView};
 
+// ANCHOR: struct_and_subclass
 // Object holding the state
 #[derive(CompositeTemplate, Default)]
 #[template(resource = "/io/github/aerphanas/window.ui")]
@@ -31,13 +32,23 @@ impl ObjectSubclass for Window {
         obj.init_template();
     }
 }
+// ANCHOR_END: struct_and_subclass
 
+// ANCHOR: constructed
+// Trait shared by all GObjects
 impl ObjectImpl for Window {
     fn constructed(&self) {
         // Call "constructed" on parent
         self.parent_constructed();
+
+        // Setup
+        let obj = self.obj();
+        obj.setup_tasks();
+        obj.setup_callbacks();
+        obj.setup_factory();
     }
 }
+// ANCHOR_END: constructed
 
 // Trait shared by all widgets
 impl WidgetImpl for Window {}
